@@ -1,11 +1,16 @@
 <?php
-
+session_start();
 global $DBH;
 global $SITE_URL;
 require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../db/dbConnect.php';
 
-if (!empty($_POST['title']) && !empty($_POST['user_id']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
+if (!isset($_SESSION['user'])) {
+    header('Location: ' . $SITE_URL . '/user.php');
+    exit;
+}
+
+if (!empty($_POST['title']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
     $filename = $_FILES['file']['name'];
     $filesize = $_FILES['file']['size'];
     $filetype = $_FILES['file']['type'];
@@ -14,7 +19,7 @@ if (!empty($_POST['title']) && !empty($_POST['user_id']) && $_FILES['file']['err
 
     $title = $_POST['title'];
     $description = $_POST['description'];
-    $user_id = $_POST['user_id'];
+    $user_id = $_SESSION['user']['user_id'];
 
     // vain kuvia ja videoita
     $allowedTypes = array('image/jpeg', 'image/png', 'image/gif', 'image/webp', 'video/webm', 'video/mp4', 'video/ogg', 'video/quicktime', 'video/mov');
@@ -44,6 +49,7 @@ if (!empty($_POST['title']) && !empty($_POST['user_id']) && $_FILES['file']['err
 
         if ($STH->rowCount() > 0) {
             header('Location: ' . $SITE_URL);
+            exit;
         }
 
     } catch (PDOException $error) {

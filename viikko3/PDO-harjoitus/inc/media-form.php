@@ -12,7 +12,6 @@
             <label for="file">Select image to upload:</label>
             <input type="file" name="file" id="file"/>
         </div>
-        <input type="hidden" name="user_id" value="1">
         <button type="submit">Upload Image</button>
     </form>
 </section>

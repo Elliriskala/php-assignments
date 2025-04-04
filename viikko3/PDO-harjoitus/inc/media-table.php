@@ -7,6 +7,7 @@
             <th>Created</th>
             <th>Owner</th>
             <th>Thumbnail</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
