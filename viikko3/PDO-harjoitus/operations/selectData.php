@@ -15,6 +15,10 @@ try {
             <td><?php echo date_format(date_create($row['created_at']), 'd.m.Y H:i'); ?></td>
             <td><?php echo $row['username']; ?></td>
             <td><img src="./uploads/<?php echo $row['filename']; ?>" alt="<?php echo $row['title']; ?>"></td>
+            <td>
+                <button class="modify-button" data-media_id="<?php echo $row['media_id']; ?>">Modify</button>
+                <button>Delete</button>
+            </td>
         </tr>
     <?php
     endwhile;

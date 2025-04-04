@@ -1,5 +1,8 @@
 <?php
+
 global $DBH;
+global $SITE_URL;
+require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../db/dbConnect.php';
 
 if (!empty($_POST['title']) && !empty($_POST['user_id']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
@@ -38,6 +41,11 @@ if (!empty($_POST['title']) && !empty($_POST['user_id']) && $_FILES['file']['err
     try {
         $STH = $DBH->prepare($sql);
         $STH->execute($data);
+
+        if ($STH->rowCount() > 0) {
+            header('Location: ' . $SITE_URL);
+        }
+
     } catch (PDOException $error) {
         echo "Could not insert data from the database.";
         file_put_contents(__DIR__ . '/../logs/PDOErrors.txt', 'insertData.php - ' . $error->getMessage(), FILE_APPEND);
