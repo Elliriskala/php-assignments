@@ -1,5 +1,8 @@
 <?php
+
 global $DBH;
+global $SITE_URL;
+require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../db/dbConnect.php';
 
 $sql = "SELECT MediaItems.*, Users.username FROM MediaItems JOIN Users ON Users.user_id = MediaItems.user_id;";
@@ -17,7 +20,7 @@ try {
             <td><img src="./uploads/<?php echo $row['filename']; ?>" alt="<?php echo $row['title']; ?>"></td>
             <td>
                 <button class="modify-button" data-media_id="<?php echo $row['media_id']; ?>">Modify</button>
-                <button>Delete</button>
+                <a href="<?php echo $SITE_URL; ?>/operations/deleteData.php?media_id=<?php echo $row['media_id']; ?>">Delete</a>
             </td>
         </tr>
     <?php
