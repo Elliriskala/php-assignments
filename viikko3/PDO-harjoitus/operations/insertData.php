@@ -27,6 +27,20 @@ if (!empty($_POST['title']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
         exit ("Invalid file type");
     }
 
+// check file size
+    $max_size = 1024 * 1024; // 1MB
+
+    if ($filesize > $max_size) {
+        echo "File too large";
+        exit;
+    }
+
+    // double check that file does not contain php
+    if (str_contains($filename, '.php') !== false) {
+        echo "Invalid file name";
+        exit;
+    }
+
     if (move_uploaded_file($tmp_name, $destination)) {
         echo "File uploaded successfully";
     } else {

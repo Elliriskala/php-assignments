@@ -1,0 +1,154 @@
+:root {
+    --primary: #0275d8;
+    --secondary: #6c757d;
+    --success: #5cb85c;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --border: #dee2e6;
+    --shadow: rgba(0, 0, 0, 0.1);
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+      'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  /* Table styles */
+  table {
+    width: 100%;
+    margin-bottom: 1rem;
+    border-collapse: collapse;
+    box-shadow: 0 0.125rem 0.25rem var(--shadow);
+  }
+  
+  table th,
+  table td {
+    padding: 0.75rem;
+    vertical-align: middle;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  table th {
+    background-color: var(--light);
+    border-bottom: 2px solid var(--border);
+    font-weight: 600;
+  }
+  
+  table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+  
+  table img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 3px;
+  }
+  
+  /* Form styles */
+  section {
+    margin-bottom: 2rem;
+  }
+  
+  #media-items {
+    margin-bottom: 3rem;
+  }
+  
+  #insert-media-item {
+    background-color: var(--light);
+    padding: 1.5rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.125rem 0.25rem var(--shadow);
+  }
+  
+  .form-control {
+    margin-bottom: 1rem;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  
+  input[type='text'],
+  textarea {
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--dark);
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid var(--border);
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+  input[type='text']:focus,
+  textarea:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  input[type='file'] {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0;
+  }
+  
+  button {
+    display: inline-block;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    color: #fff;
+    background-color: var(--primary);
+    border: 1px solid var(--primary);
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    table {
+      font-size: 0.9rem;
+    }
+  
+    table th,
+    table td {
+      padding: 0.5rem;
+    }
+  
+    #insert-media-item {
+      padding: 1rem;
+    }
+  }
